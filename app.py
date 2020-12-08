@@ -41,20 +41,25 @@ def mover(x, y, z):
         return new
     
 # Parametros de entrada
-area = "6 5"
-sonda1 = "1 2 N"
+area = input()
+sonda1 = input()
 movimentos1 = []
-movimentos1[:0] = 'LMLMLMLMM'
+movimentos1[:0] = input()
 
-sonda2 = "3 3 E"
+sonda2 = input() 
 movimentos2 = []
-movimentos2[:0] = 'MMRMMRMRRM'
+movimentos2[:0] = input()
 
 # Tratamento das entradas
 area = area.split()
+
+# Considerando que na perspectiva do usuario o tamanho do planalto vai ter 5 posicoes de 0 a 5 estou incrementando a area para atender a essa expectativa
 p1 = int(area[0])
 p2 = int(area[1])
+p1 = p1 + 1
+p2 = p2 + 1
 
+# Tratamento das entradas
 sonda1 = sonda1.split()
 x1 = int(sonda1[0])
 y1 = int(sonda1[1])
@@ -71,8 +76,8 @@ planalto = base(p1, p2)
 # Posição inicial da sonda1
 # planalto[x, y] = 1
 
-print("Posicao inicial da sonda1: ", x1, y1, z1)
-print("Posicao inicial da sonda2: ", x2, y2, z2)
+# print("Posicao inicial da sonda1: ", x1, y1, z1)
+# print("Posicao inicial da sonda2: ", x2, y2, z2)
 
 # Movimentos da sonda1
 for mov in movimentos1:
@@ -85,7 +90,7 @@ for mov in movimentos1:
         z1 = rotate(z1, mov)
 
 planalto[x1, y1] = 1
-print("final sonda1", x1, y1, z1)
+print(x1, y1, z1)
 
 # Movimentos da sonda2
 for mov in movimentos2:
@@ -98,6 +103,6 @@ for mov in movimentos2:
         z2 = rotate(z2, mov)
 
 planalto[x2, y2] = 2
-print("final sonda2", x2, y2, z2)
+print(x2, y2, z2)
 
-print(planalto)
+# print(np.rot90(planalto))
